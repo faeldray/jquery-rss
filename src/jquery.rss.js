@@ -250,19 +250,13 @@
       this.feedTokens = feed;
     }
 
-<<<<<<< HEAD
-    // If moment.js is available, use it to format the date.
-    if (typeof moment !== 'undefined') {
-      this.formattedDate = moment(new Date(entry.publishedDate)).locale(this.options.language).format(this.options.dateFormat);
-=======
     // If a custom formatting function is provided, use that.
     if (this.options.dateFormatFunction) {
       this.formattedDate = this.options.dateFormatFunction(entry.publishedDate);
     } else if (typeof moment !== 'undefined') {
       // If moment.js is available and dateFormatFunction is not overriding it,
       // use it to format the date.
-      this.formattedDate = moment(new Date(entry.publishedDate)).format(this.options.dateFormat);
->>>>>>> refs/remotes/sdepold/gh-pages
+      this.formattedDate = moment(new Date(entry.publishedDate)).locale(this.options.language).format(this.options.dateFormat);
     } else {
       // If all else fails, just use the date as-is.
       this.formattedDate = entry.publishedDate;
